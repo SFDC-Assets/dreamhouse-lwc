@@ -12,7 +12,7 @@ public with sharing class PropertyController {
      * @param pageNumber Page number
      * @return PagedResult object holding the paged and filtered list of properties
      */
-    @AuraEnabled(cacheable=true)
+    @AuraEnabled(cacheable=true scope='global')
     public static PagedResult getPagedPropertyList(
         String searchKey,
         Decimal maxPrice,
@@ -22,15 +22,11 @@ public with sharing class PropertyController {
         Integer pageNumber
     ) {
         // Normalize inputs
-        Decimal safeMaxPrice = (maxPrice == null
-            ? DEFAULT_MAX_PRICE
-            : maxPrice);
-        Integer safeMinBedrooms = (minBedrooms == null ? 0 : minBedrooms);
-        Integer safeMinBathrooms = (minBathrooms == null ? 0 : minBathrooms);
-        Integer safePageSize = (pageSize == null
-            ? DEFAULT_PAGE_SIZE
-            : pageSize);
-        Integer safePageNumber = (pageNumber == null ? 1 : pageNumber);
+        Decimal safeMaxPrice = maxPrice ?? DEFAULT_MAX_PRICE;
+        Integer safeMinBedrooms = minBedrooms ?? 0;
+        Integer safeMinBathrooms = minBathrooms ?? 0;
+        Integer safePageSize = pageSize ?? DEFAULT_PAGE_SIZE;
+        Integer safePageNumber = pageNumber ?? 1;
 
         String searchPattern = '%' + searchKey + '%';
         Integer offset = (safePageNumber - 1) * safePageSize;
@@ -52,6 +48,7 @@ public with sharing class PropertyController {
         result.records = [
             SELECT
                 Id,
+                Name,
                 Address__c,
                 City__c,
                 State__c,
@@ -70,7 +67,7 @@ public with sharing class PropertyController {
                 AND Price__c <= :safeMaxPrice
                 AND Beds__c >= :safeMinBedrooms
                 AND Baths__c >= :safeMinBathrooms
-            WITH SECURITY_ENFORCED
+            WITH USER_MODE
             ORDER BY Price__c
             LIMIT :safePageSize
             OFFSET :offset
@@ -83,15 +80,15 @@ public with sharing class PropertyController {
      * @param propertyId Property Id
      * @return List of ContentVersion holding the pictures
      */
-    @AuraEnabled(cacheable=true)
+    @AuraEnabled(cacheable=true scope='global')
     public static List<ContentVersion> getPictures(Id propertyId) {
         List<ContentDocumentLink> links = [
-            SELECT Id, LinkedEntityId, ContentDocumentId
+            SELECT Id, LinkedEntityId, ContentDocument.Title
             FROM ContentDocumentLink
             WHERE
                 LinkedEntityId = :propertyId
                 AND ContentDocument.FileType IN ('PNG', 'JPG', 'GIF')
-            WITH SECURITY_ENFORCED
+            WITH USER_MODE
         ];
 
         if (links.isEmpty()) {
@@ -108,7 +105,7 @@ public with sharing class PropertyController {
             SELECT Id, Title
             FROM ContentVersion
             WHERE ContentDocumentId IN :contentIds AND IsLatest = TRUE
-            WITH SECURITY_ENFORCED
+            WITH USER_MODE
             ORDER BY CreatedDate
         ];
     }

@@ -3,6 +3,12 @@
     <flexiPageRegions>
         <itemInstances>
             <componentInstance>
+                <componentName>barcodeScanner</componentName>
+                <identifier>c_barcodeScanner</identifier>
+            </componentInstance>
+        </itemInstances>
+        <itemInstances>
+            <componentInstance>
                 <componentName>propertyFilter</componentName>
                 <identifier>propertyFilter</identifier>
             </componentInstance>
@@ -13,8 +19,8 @@
     <flexiPageRegions>
         <itemInstances>
             <componentInstance>
-                <componentName>auraPropertyListMap</componentName>
-                <identifier>auraPropertyListMap</identifier>
+                <componentName>propertyListMap</componentName>
+                <identifier>c_propertyListMap</identifier>
             </componentInstance>
         </itemInstances>
         <name>center</name>

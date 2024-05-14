@@ -1,11 +1,13 @@
 <template>
     <lightning-card title="Broker" icon-name="standard:contact">
-        <template if:true={property.data}>
+        <template lwc:if={property.data}>
             <lightning-button-icon
                 icon-name="utility:expand_alt"
                 slot="actions"
                 onclick={handleNavigateToRecord}
-            ></lightning-button-icon>
+            >
+                <label>Navigate to record</label>
+            </lightning-button-icon>
             <div class="slds-var-m-around_medium">
                 <lightning-record-form
                     object-api-name="Broker__c"
@@ -15,7 +17,7 @@
                 ></lightning-record-form>
             </div>
         </template>
-        <template if:true={property.error}>
+        <template lwc:if={property.error}>
             <c-error-panel
                 friendly-message="Error retrieving data"
                 errors={property.error}
