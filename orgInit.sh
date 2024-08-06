@@ -7,6 +7,10 @@ sleep 120
 sfdx force:source:push
 sfdx force:user:permset:assign -n dreamhouse
 sfdx force:user:permset:assign -n Walkthroughs
+
+sfdx force:user:permset:assign -n EinsteinGPTPromptTemplateManager
+sfdx force:user:permset:assign -n EinsteinGPTPromptTemplateUser
+
 sfdx force:data:tree:import -p data/sample-data-plan.json
 
 sfdx shane:user:password:set -p salesforce1 -g User -l User
