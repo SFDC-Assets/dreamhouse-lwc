@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPromptTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <activeVersion>4</activeVersion>
+    <description>Generate an eccentric and attention-grabbing real estate advertisement for a specific property</description>
+    <developerName>Property_Ad</developerName>
+    <masterLabel>Property Ad</masterLabel>
+    <relatedEntity>Property__c</relatedEntity>
+    <relatedField>Property__c.Property_Advertisement__c</relatedField>
+    <templateVersions>
+        <content>Persona:
+You are going to generate an eccentric, attention-grabbing, and irresistible real estate advertisement in the {!$Input:Property__c.Property_Advertisement__c} field for a property. Ensure you do this for the correct property by querying the corresponding{!$Input:Property__c.Id} from the Property object. No two ads written should be the same and the ad should always stand out by focusing on the property&apos;s distinct value, charm, and uniqueness, appealing to prospective buyers&apos; desires for lifestyle and location. 
+
+
+Instructions:
+Do NOT include the {!$Input:Property__c.Id} in the advertisement, only query it to make sure you are generating the ad for the correct property.
+Always start the ad by mentioning the {!$Input:Property__c.Price__c}, {!$Input:Property__c.Baths__c} and {!$Input:Property__c.Beds__c}. These are important details that anyone buying a home would want to know so ensure that they appear at the top of the advert.
+When stating where the property is, ensure that you write it in this format - {!$Input:Property__c.Address__c}, {!$Input:Property__c.City__c}, {!$Input:Property__c.State__c}, {!$Input:Property__c.Zip__c}
+Highlight the lifestyle the property offers—whether it’s luxury, family-friendly, or urban living. Leverage the {!$Input:Property__c.Tags__c} to help with this since they explain the type of property that is being viewed.
+Emphasize the uniqueness of the property (e.g., architectural style, historical significance, stunning views, or modern amenities).
+Create a sense of urgency by mentioning limited time or exclusive opportunities. Use the {!$Input:Property__c.Days_On_Market__c} to help with this where it is useful, specifically mentioning this when the property has been on the market for 10 days or more.
+Tailor the tone and style to match the property&apos;s personality: bold and funky for modern homes, or elegant and chic for classic properties.
+Use catchy taglines, playful puns, or clever wordplay to grab attention while staying informative.
+Include the main photo of the property ({!$Input:Property__c.Picture_IMG__c}) to go beyond explanation and create an appeal visually.
+Occasionally refer to the property by its {!$Input:Property__c.Name} when it is appropriate. However, do not only refer to it as this, occasionally use the {!$Input:Property__c.Address__c} to refer to the property as well.
+Make the ad flashy, fun, and impossible to ignore! Focus on crafting an ad designed to spark interest and sell. However, still keep it brief and to the point - avoid being repetitive or using filler words.
+</content>
+        <inputs>
+            <apiName>RelatedEntity</apiName>
+            <definition>SOBJECT://Property__c</definition>
+            <referenceName>Input:Property__c</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4Turbo</primaryModel>
+        <status>Published</status>
+        <versionNumber>1</versionNumber>
+    </templateVersions>
+    <templateVersions>
+        <content>Persona:
+You are going to generate an eccentric, attention-grabbing, and irresistible real estate advertisement in the {!$Input:Property__c.Property_Advertisement__c} field for a property. Ensure you do this for the correct property by querying the property ID ({!$Input:Property__c.Id}). No two ads written should be the same and the ad should always stand out by focusing on the property&apos;s distinct value, charm, and uniqueness, appealing to prospective buyers&apos; desires for lifestyle and location. 
+
+
+Instructions:
+Do NOT include the property ID ({!$Input:Property__c.Id}) in the advertisement, only query it to make sure you are generating the ad for the correct property.
+The first line of the advert should always be in this order: The property name ({!$Input:Property__c.Name}), the asking price ({!$Input:Property__c.Price__c}), number of bedrooms ({!$Input:Property__c.Beds__c}), and the number of bathrooms ({!$Input:Property__c.Baths__c}). These are important details that anyone buying a home would want to know, so ensure that they appear at the top of the advert on a line by themselves. The rest of the ad should start one space underneath this line. 
+When stating where the property is, ensure that you write it in this format - {!$Input:Property__c.Address__c}, {!$Input:Property__c.City__c}, {!$Input:Property__c.State__c}, {!$Input:Property__c.Zip__c}
+Highlight the lifestyle the property offers—whether it’s luxury, family-friendly, or urban living. Leverage the property tag ({!$Input:Property__c.Tags__c}) to help with this since it explains the type of property that is being viewed.
+Emphasize the uniqueness of the property (e.g., architectural style, historical significance, stunning views, or modern amenities).
+Create a sense of urgency by mentioning limited time or exclusive opportunities. Use the number of days on the market ({!$Input:Property__c.Days_On_Market__c}) to help with this where it is useful, specifically mentioning this when the property has been on the market for 10 days or more.
+Tailor the tone and style to match the property&apos;s personality: bold and funky for modern homes, or elegant and chic for classic properties.
+Use catchy taglines, playful puns, or clever wordplay to grab attention while staying informative.
+Include the main photo of the property ({!$Input:Property__c.Picture_IMG__c}) to go beyond explanation and create an appeal visually.
+Refer to the property as its address ({!$Input:Property__c.Address__c}), do NOT refer to it by its property name in Dreamhouse ({!$Input:Property__c.Name}) except for on the first line of the advert.
+Make the ad flashy, fun, and impossible to ignore! Focus on crafting an ad designed to spark interest and sell. However, still keep it to less than 3 paragraphs - avoid being repetitive or using filler words.
+</content>
+        <inputs>
+            <apiName>RelatedEntity</apiName>
+            <definition>SOBJECT://Property__c</definition>
+            <referenceName>Input:Property__c</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4Turbo</primaryModel>
+        <status>Published</status>
+        <versionNumber>2</versionNumber>
+    </templateVersions>
+    <templateVersions>
+        <content>Persona:
+You are going to generate an eccentric, attention-grabbing, and irresistible real estate advertisement in the {!$Input:Property__c.Property_Advertisement__c} field for a property. Ensure you do this for the correct property by querying the property ID ({!$Input:Property__c.Id}). No two ads written should be the same and the ad should always stand out by focusing on the property&apos;s distinct value, charm, and uniqueness, appealing to prospective buyers&apos; desires for lifestyle and location. 
+
+
+Instructions:
+Do NOT include the property ID ({!$Input:Property__c.Id}) in the advertisement, only query it to make sure you are generating the ad for the correct property.
+
+The first line of the advert should always be in this order: The property name ({!$Input:Property__c.Name}), Asking Price: {!$Input:Property__c.Price__c} (written as currency in USD), Bedrooms: {!$Input:Property__c.Beds__c}, Bathrooms: {!$Input:Property__c.Baths__c}). These are important details that anyone buying a home would want to know, so ensure that they appear at the top of the advert on a line by themselves. The rest of the ad should start one space underneath this line. 
+
+When stating where the property is, ensure that you write it in this format - {!$Input:Property__c.Address__c}, {!$Input:Property__c.City__c}, {!$Input:Property__c.State__c}, {!$Input:Property__c.Zip__c}
+
+Highlight the lifestyle the property offers—whether it’s luxury, family-friendly, or urban living. Leverage the property tag ({!$Input:Property__c.Tags__c}) to help with this since it explains the type of property that is being viewed.
+
+Emphasize the uniqueness of the property (e.g., architectural style, historical significance, stunning views, or modern amenities).
+
+Create a sense of urgency by mentioning limited time or exclusive opportunities. Use the number of days on the market ({!$Input:Property__c.Days_On_Market__c}) to help with this where it is useful, specifically mentioning this when the property has been on the market for 10 days or more.
+
+Tailor the tone and style to match the property&apos;s personality: bold and funky for modern homes, or elegant and chic for classic properties.
+
+Use catchy taglines, playful puns, or clever wordplay to grab attention while staying informative.
+
+Include the main photo of the property ({!$Input:Property__c.Picture_IMG__c}) to go beyond explanation and create an appeal visually.
+
+Refer to the property as its address ({!$Input:Property__c.Address__c}), do NOT refer to it by its property name in Dreamhouse ({!$Input:Property__c.Name}) except for on the first line of the advert.
+
+Make the ad flashy, fun, and impossible to ignore! Focus on crafting an ad designed to spark interest and sell. However, still keep it to less than 3 paragraphs - avoid being repetitive or using filler words.
+</content>
+        <inputs>
+            <apiName>RelatedEntity</apiName>
+            <definition>SOBJECT://Property__c</definition>
+            <referenceName>Input:Property__c</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4Turbo</primaryModel>
+        <status>Published</status>
+        <versionNumber>3</versionNumber>
+    </templateVersions>
+    <templateVersions>
+        <content>Persona:
+You are going to generate an eccentric, attention-grabbing, and irresistible real estate advertisement in the {!$Input:Property__c.Property_Advertisement__c} field for a property. Ensure you do this for the correct property by querying the property ID ({!$Input:Property__c.Id}). No two ads written should be the same and the ad should always stand out by focusing on the property&apos;s distinct value, charm, and uniqueness, appealing to prospective buyers&apos; desires for lifestyle and location. 
+
+
+Instructions:
+Do NOT include the property ID ({!$Input:Property__c.Id}) in the advertisement, only query it to make sure you are generating the ad for the correct property.
+
+The first line of the advert should always be in this order: The property name ({!$Input:Property__c.Name}), Asking Price: {!$Input:Property__c.Price__c} (written as currency in USD), Bedrooms: {!$Input:Property__c.Beds__c}, Bathrooms: {!$Input:Property__c.Baths__c}). These are important details that anyone buying a home would want to know, so ensure that they appear at the top of the advert on a line by themselves. The rest of the ad should start one space underneath this line. 
+
+When stating where the property is, ensure that you write it in this format - {!$Input:Property__c.Address__c}, {!$Input:Property__c.City__c}, {!$Input:Property__c.State__c}, {!$Input:Property__c.Zip__c}
+
+Highlight the lifestyle the property offers—whether it’s luxury, family-friendly, or urban living. Leverage the property tag ({!$Input:Property__c.Tags__c}) to help with this since it explains the type of property that is being viewed.
+
+Emphasize the uniqueness of the property (e.g., architectural style, historical significance, stunning views, or modern amenities).
+
+Create a sense of urgency by mentioning limited time or exclusive opportunities. Use the number of days on the market ({!$Input:Property__c.Days_On_Market__c}) to help with this where it is useful, specifically mentioning this when the property has been on the market for 15 days or more.
+
+Tailor the tone and style to match the property&apos;s personality: bold and funky for modern homes, or elegant and chic for classic properties.
+
+Use catchy taglines, playful puns, or clever wordplay to grab attention while staying informative.
+
+Include the main photo of the property ({!$Input:Property__c.Picture_IMG__c}) to go beyond explanation and create an appeal visually.
+
+Refer to the property as its address ({!$Input:Property__c.Address__c}), do NOT refer to it by its property name in Dreamhouse ({!$Input:Property__c.Name}) except for on the first line of the advert.
+
+Make the ad flashy, fun, and impossible to ignore! Focus on crafting an ad designed to spark interest and sell. However, still keep it to less than 3 paragraphs - avoid being repetitive or using filler words.
+</content>
+        <inputs>
+            <apiName>RelatedEntity</apiName>
+            <definition>SOBJECT://Property__c</definition>
+            <referenceName>Input:Property__c</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4Turbo</primaryModel>
+        <status>Published</status>
+        <versionNumber>4</versionNumber>
+    </templateVersions>
+    <type>einstein_gpt__fieldCompletion</type>
+    <visibility>Global</visibility>
+</GenAiPromptTemplate>

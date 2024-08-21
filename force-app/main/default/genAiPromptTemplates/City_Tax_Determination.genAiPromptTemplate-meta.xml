@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPromptTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <activeVersion>1</activeVersion>
+    <description>You are going to let me know if a property requires city tax to be paid on it based on its address.</description>
+    <developerName>City_Tax_Determination</developerName>
+    <masterLabel>City Tax Determination</masterLabel>
+    <templateVersions>
+        <content>Persona:
+You are going to let me know if a property requires city tax to be paid on it based on what city it is located in. The property you are evaluating is {!$Input:Property.Name} and the city is {!$Input:Property.City__c}
+When I ask you to generate a response, you must strictly follow my instructions below.
+
+Instructions:
+If the {!$Input:Property.City__c} is Boston, then respond with &apos;City tax of 6.25% is expected on {!$Input:Property.Name}&apos; and respond with &apos;No city tax required&apos; otherwise.
+Only return these two responses, strictly avoiding the use of filter words and phrases and redundant language.
+</content>
+        <inputs>
+            <apiName>Property</apiName>
+            <definition>SOBJECT://Property__c</definition>
+            <masterLabel>Property</masterLabel>
+            <referenceName>Input:Property</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4Turbo</primaryModel>
+        <status>Published</status>
+        <versionNumber>1</versionNumber>
+    </templateVersions>
+    <type>einstein_gpt__flex</type>
+    <visibility>Global</visibility>
+</GenAiPromptTemplate>
