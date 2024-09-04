@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<GenAiFunction xmlns="http://soap.sforce.com/2006/04/metadata">
-    <description>You are going to let me know if a property requires city tax to be paid on it based on its address.</description>
-    <invocationTarget>City_Tax_Determination</invocationTarget>
-    <invocationTargetType>generatePromptResponse</invocationTargetType>
-    <isConfirmationRequired>false</isConfirmationRequired>
-    <masterLabel>City Tax Determination</masterLabel>
-</GenAiFunction>
