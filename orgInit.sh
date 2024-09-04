@@ -5,6 +5,8 @@ node run.js
 sleep 120
 
 sfdx force:source:push
+
+sf project deploy start -d force-app/main/default/genAiPromptTemplates/
 sfdx force:user:permset:assign -n dreamhouse
 sfdx force:user:permset:assign -n Walkthroughs
 
