@@ -9,4 +9,4 @@ sfdx force:user:permset:assign -n dreamhouse
 sfdx force:user:permset:assign -n Walkthroughs
 sfdx force:data:tree:import -p data/sample-data-plan.json
 
-sfdx force:org:open -p /lightning/n/Property_Explorer
+sfdx force:org:open
