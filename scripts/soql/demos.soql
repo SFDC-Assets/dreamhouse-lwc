@@ -1,0 +1,1 @@
+SELECT Id,Name,Status__c,Github_URL__c FROM Demo__c WHERE Status__c='Published'
