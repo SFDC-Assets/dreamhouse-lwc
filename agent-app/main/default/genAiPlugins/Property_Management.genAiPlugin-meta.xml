@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<GenAiPlugin
+  xmlns="http://soap.sforce.com/2006/04/metadata"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+>
+    <description
+  >Support real estate agents with managing and calculating information on their properties</description>
+    <developerName>Property_Management</developerName>
+    <genAiFunctions>
+        <functionName>City_Tax_Determination</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>List_of_Properties</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>Property_Ad</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>EmployeeCopilot__GetRecordDetails</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>EmployeeCopilot__IdentifyRecordByName</functionName>
+    </genAiFunctions>
+    <genAiPluginInstructions>
+        <description>Support agents to calculate their city taxes</description>
+        <developerName>supportage0</developerName>
+        <language xsi:nil="true" />
+        <masterLabel>supportage</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>Help query properties</description>
+        <developerName>helpqueryp1</developerName>
+        <language xsi:nil="true" />
+        <masterLabel>helpqueryp</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>Generate a property advertisement</description>
+        <developerName>generateap2</developerName>
+        <language xsi:nil="true" />
+        <masterLabel>generateap</masterLabel>
+    </genAiPluginInstructions>
+    <language>en_US</language>
+    <masterLabel>Property Management</masterLabel>
+    <pluginType>Topic</pluginType>
+    <scope>Run actions against the Property objects</scope>
+</GenAiPlugin>

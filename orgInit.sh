@@ -1,17 +1,16 @@
-sfdx shane:org:create -f config/project-scratch-def.json -d 30 -s --wait 60 --userprefix dream -o house.demo
+sf demoutil org create scratch -f config/project-scratch-def.json -d 30 -s -p dream -e house.demo
 
 npm install
 node run.js
 sleep 120
 
-sfdx force:source:push
-sfdx force:user:permset:assign -n dreamhouse
-sfdx force:user:permset:assign -n Walkthroughs
+sf project deploy start --ignore-conflicts
+sf org assign permset -n dreamhouse
+sf org assign permset -n Walkthroughs
+sf org assign permset -n EinsteinGPTPromptTemplateManager
 
-sfdx force:user:permset:assign -n EinsteinGPTPromptTemplateManager
-sfdx force:user:permset:assign -n EinsteinGPTPromptTemplateUser
+sf data import tree -p data/sample-data-plan.json
 
-sfdx force:data:tree:import -p data/sample-data-plan.json
+sf demoutil user password set -p salesforce1 -g User -l User
 
-sfdx shane:user:password:set -p salesforce1 -g User -l User
-sfdx force:org:open
+sf org open

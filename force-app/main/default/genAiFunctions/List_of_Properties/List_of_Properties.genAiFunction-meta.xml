@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<GenAiFunction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description
+  >Provide a list of properties that meet the criteria given in the user input.</description>
+    <invocationTarget>List_of_Properties</invocationTarget>
+    <invocationTargetType>generatePromptResponse</invocationTargetType>
+    <isConfirmationRequired>false</isConfirmationRequired>
+    <masterLabel>List of Properties</masterLabel>
+</GenAiFunction>

@@ -1,0 +1,17 @@
+{
+  "required": ["Input:Property"],
+  "unevaluatedProperties": false,
+  "properties": {
+    "Input:Property": {
+      "title": "Property",
+      "description": "Property record input",
+      "lightning:type": "lightning__recordInfoType",
+      "lightning:sObjectInfo": {
+        "apiName": "Property__c"
+      },
+      "lightning:isPII": false,
+      "copilotAction:isUserInput": false
+    }
+  },
+  "lightning:type": "lightning__objectType"
+}

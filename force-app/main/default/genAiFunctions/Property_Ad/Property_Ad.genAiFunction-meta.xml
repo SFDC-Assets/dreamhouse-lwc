@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<GenAiFunction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description
+  >Generate an eccentric and attention-grabbing real estate advertisement for a specific property</description>
+    <invocationTarget>Property_Ad</invocationTarget>
+    <invocationTargetType>generatePromptResponse</invocationTargetType>
+    <isConfirmationRequired>false</isConfirmationRequired>
+    <masterLabel>Property Ad</masterLabel>
+</GenAiFunction>
