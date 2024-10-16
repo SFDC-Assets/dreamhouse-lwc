@@ -13,4 +13,5 @@ sf org assign permset -n EinsteinGPTPromptTemplateManager
 sf data import tree -p data/sample-data-plan.json
 
 sf demoutil user password set -p salesforce1 -g User -l User
+
 sf org open
