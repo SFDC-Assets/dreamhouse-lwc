@@ -4,11 +4,11 @@ npm install
 node run.js
 sleep 120
 
+sf org assign permset -n EinsteinGPTPromptTemplateManager
+
 sf project deploy start
 sf org assign permset -n dreamhouse
 sf org assign permset -n Walkthroughs
-
-sf org assign permset -n EinsteinGPTPromptTemplateManager
 
 sf data import tree -p data/sample-data-plan.json
 

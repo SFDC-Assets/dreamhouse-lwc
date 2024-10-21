@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<GenAiPromptTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description
+  >Give me the number of bedrooms in a specific property</description>
+    <developerName>How_Many_Bedrooms</developerName>
+    <masterLabel>How Many Bedrooms</masterLabel>
+    <templateVersions>
+        <content
+    >You are going to give me the number of bedrooms in a specific property.
+
+To give a response to the prompt, refer to the {!$Input:Property.Beds__c} field for the &apos;quantity of bedrooms&apos; for the corresponding property name {!$Input:Property.Name}
+
+Example input: &apos;How many bedrooms are in City Living?&apos;
+
+Example response: &apos;There are {!$Input:Property.Beds__c} bedrooms in {!$Input:Property.Name}&apos;
+</content>
+        <inputs>
+            <apiName>Property</apiName>
+            <definition>SOBJECT://Property__c</definition>
+            <masterLabel>Property</masterLabel>
+            <referenceName>Input:Property</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT35Turbo</primaryModel>
+        <status>Draft</status>
+        <versionNumber>1</versionNumber>
+    </templateVersions>
+    <type>einstein_gpt__flex</type>
+    <visibility>Global</visibility>
+</GenAiPromptTemplate>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<GenAiPromptTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description
+  >Compare a given property to another one based on the city it is in and the asking price</description>
+    <developerName>Comparison_of_properties</developerName>
+    <masterLabel>Comparison of properties</masterLabel>
+    <templateVersions>
+        <content
+    >You are going to compare properties based on their asking prices provided in the user input. Your task is to identify properties where the asking prices are within $20,000 of each other. 
+
+User Input Example: &quot;Show me properties similar to {!$Input:Property.Name}&quot; 
+
+Instructions: 
+1. Query the property with the given name in the user input 
+2. Look at the property&apos;s {!$Input:Property.Price__c}, then query other records in the property object that have {!$Input:Property.Price__c} that is plus or minus $20,000 of the asking price of {!$Input:Property.Name} from the user input. 
+3. Provide a list of the properties that match the criteria. 
+
+
+Response Format: 
+- If the prices are within $20,000, respond with a list of the properties, providing the {!$Input:Property.Price__c}
+- If the prices are not within $20,000, respond with: &quot;There are no such properties here&quot;
+
+Example Response: - &quot;1. {!$Input:Property.Name} - Address: {!$Input:Property.Address__c} Asking Price: {!$Input:Property.Price__c}
+2.  {!$Input:Property.Name} - Address: {!$Input:Property.Address__c}  - Asking Price: {!$Input:Property.Price__c}&quot;
+</content>
+        <inputs>
+            <apiName>Property</apiName>
+            <definition>SOBJECT://Property__c</definition>
+            <masterLabel>Property</masterLabel>
+            <referenceName>Input:Property</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT35Turbo</primaryModel>
+        <status>Draft</status>
+        <versionNumber>1</versionNumber>
+    </templateVersions>
+    <type>einstein_gpt__flex</type>
+    <visibility>Global</visibility>
+</GenAiPromptTemplate>

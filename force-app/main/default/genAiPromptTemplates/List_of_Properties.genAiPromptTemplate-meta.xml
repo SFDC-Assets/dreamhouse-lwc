@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<GenAiPromptTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <activeVersion>3</activeVersion>
+    <description
+  >Provide a list of properties that meet the criteria given in the user input.</description>
+    <developerName>List_of_Properties</developerName>
+    <masterLabel>List of Properties</masterLabel>
+    <templateVersions>
+        <content
+    >You are going to provide a list of properties that meet the criteria given in the user input.
+
+User Input Example:
+&quot;Show me a list of houses in Boston with 3 beds and 1 bath.&quot;
+
+Instructions:
+1. Extract the city, number of bedrooms, and number of bathrooms from the user input.
+2. Use the extracted criteria to query the input fields in the property object.
+3. Return a list of properties that match the criteria.
+
+Input Fields:
+- City: {!$Input:Property.City__c}{!$Input:Property.City__c}
+- Beds: {!$Input:Property.Beds__c}
+- Baths: {!$Input:Property.Baths__c}
+
+Response Format:
+- Provide a concise list of properties in the format: &quot;Property Name - Address - Beds: X, Baths: Y&quot;
+- Include only the properties that match all criteria.
+- Do not include any extra information or explanation.
+
+Example Response:
+1. Maple House - 123 Main St, Boston - Beds: 3, Baths: 1
+2. Oak Villa - 456 Elm St, Boston - Beds: 3, Baths: 1
+
+</content>
+        <inputs>
+            <apiName>Property</apiName>
+            <definition>SOBJECT://Property__c</definition>
+            <masterLabel>Property</masterLabel>
+            <referenceName>Input:Property</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT35Turbo</primaryModel>
+        <status>Published</status>
+        <versionNumber>1</versionNumber>
+    </templateVersions>
+    <templateVersions>
+        <content
+    >You are going to provide a list of properties that meet the criteria given in the user input.
+
+Instructions:
+1. Extract the city, number of bedrooms, and number of bathrooms from the user input.
+2. Use the extracted criteria to query the input fields in the property object.
+3. Return a list of properties that match the criteria.
+
+Input Fields:
+- City: {!$Input:Property.City__c}{!$Input:Property.City__c}
+- Beds: {!$Input:Property.Beds__c}
+- Baths: {!$Input:Property.Baths__c}
+
+Response Format:
+- Provide a concise list of properties in the format: &quot;Property Name - Address - Beds: X, Baths: Y&quot;
+- Include only the properties that match all criteria.
+- Do not include any extra information or explanation.
+
+
+</content>
+        <inputs>
+            <apiName>Property</apiName>
+            <definition>SOBJECT://Property__c</definition>
+            <masterLabel>Property</masterLabel>
+            <referenceName>Input:Property</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT35Turbo</primaryModel>
+        <status>Published</status>
+        <versionNumber>2</versionNumber>
+    </templateVersions>
+    <templateVersions>
+        <content
+    >You are going to provide a list of properties that match the criteria given in the user input.
+
+Instructions:
+Extract the city, number of bedrooms, and number of bathrooms from the user input.
+Use the extracted criteria to query the Property object and find records that match all criteria.
+Return a list of properties from the Property object that meet the specified criteria.
+
+Query Input Fields:
+City: {!$Input:Property.City__c}
+Number of Bedrooms: {!$Input:Property.Beds__c}
+Number of Bathrooms: {!$Input:Property.Baths__c}
+
+Response Format:
+Provide a concise list of matching properties in the format: &quot;Property Name - Address - Beds: X, Baths: Y&quot;
+Only include properties that match all of the criteria.
+Do not provide additional explanations.
+
+For example, if the user input is: &apos;Show all properties in Boston with 3 beds and 1 bath,&apos; you will return a list of properties in Boston that have exactly 3 bedrooms and 1 bathroom.
+
+
+</content>
+        <inputs>
+            <apiName>Property</apiName>
+            <definition>SOBJECT://Property__c</definition>
+            <masterLabel>Property</masterLabel>
+            <referenceName>Input:Property</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT35Turbo</primaryModel>
+        <status>Published</status>
+        <versionNumber>3</versionNumber>
+    </templateVersions>
+    <type>einstein_gpt__flex</type>
+    <visibility>Global</visibility>
+</GenAiPromptTemplate>
